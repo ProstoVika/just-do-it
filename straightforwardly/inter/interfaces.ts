@@ -3,10 +3,12 @@ export interface ItemsInterface{
     image : string;
     title: string;
     company : string;
-    price : string;
+    price : number;
     amount: number;
+    quantity: number;
 }
+/*
 export interface getProductInfoInterface {
     src: HTMLImageElement;
     amount: string;
-}
+}*/

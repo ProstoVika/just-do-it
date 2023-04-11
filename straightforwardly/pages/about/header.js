@@ -1,10 +1,15 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-/*import {renderList} from "../../index";*/
-(() => {
+/*
+import {ItemsInterface} from "../../inter/interfaces";
+import {VikaTestClass} from "../../index";
+/!*import {renderList} from "../../index";*!/
+
+(() =>{
     console.log('just do it now');
 })();
-const renderList = (items) => {
+
+
+
+ const renderList = (items: ItemsInterface[]): void => {
     let placeholder = document.querySelector(".products-container");
     let out = "";
     for (let product of items) {
@@ -24,70 +29,87 @@ const renderList = (items) => {
       `;
     }
     placeholder.innerHTML = out;
-};
+}
+
 const cartContainer = document.querySelector('.cart-container');
-const productsContainer = document.querySelector('.products-container');
+const productsContainer= document.querySelector('.products-container');
 const cartList = document.querySelector('.cart-list');
 const cartTotalValue = document.getElementById('cart-total-value');
 const cartCountInfo = document.getElementById('cart-count-info');
 let cartItemID = 1;
+
+
 let products = JSON.parse(localStorage.getItem("products"));
 let cart = JSON.parse(localStorage.getItem("cart"));
+
+
 fetch("products.json")
     .then(response => response.json())
     .then(data => {
-    localStorage.setItem("products", JSON.stringify(data));
-    console.log(localStorage.getItem("cart"));
-    if (!localStorage.getItem("cart")) {
-        localStorage.setItem("cart", "[]");
-    }
-    renderList(products);
-});
+        localStorage.setItem("products", JSON.stringify(data));
+        console.log(localStorage.getItem("cart"));
+        if (!localStorage.getItem("cart")) {
+            localStorage.setItem("cart", "[]");
+        }
+        renderList(products)
+
+    })
+
+
 let lineSecond = document.getElementById('line');
-const progressBar = () => {
+const progressBar = (): void => {
     let windowScroll = document.body.scrollTop ||
         document.documentElement.scrollTop;
     let windowHeight = document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
     let width_progress_line = windowScroll / windowHeight * 100;
     lineSecond.style.width = width_progress_line + '%';
-};
+}
 window.addEventListener('scroll', progressBar);
-window.addEventListener('DOMContentLoaded', () => {
+
+
+window.addEventListener('DOMContentLoaded', (): void =>{
     loadCart();
-    document.getElementById('cart-btn').addEventListener('click', () => {
+
+    document.getElementById('cart-btn').addEventListener('click', (): void => {
         cartContainer.classList.toggle('show-cart-container');
     });
     productsContainer.addEventListener('click', purchaseProduct);
     cartList.addEventListener('click', deleteProduct);
+
 });
+
 const purchaseProduct = (e) => {
-    if (e.target.classList.contains('bag-btn')) {
-        /*console.log(e.target)*/
+    if(e.target.classList.contains('bag-btn')){
+        /!*console.log(e.target)*!/
         let product = e.target.parentElement.parentElement;
         getProductInfo(product);
     }
-};
-const updateCartInfo = () => {
+}
+
+const updateCartInfo = (): void =>{
     let cartInfo = findCartInfo();
-    /* console.log(cartInfo)*/
+    /!* console.log(cartInfo)*!/
     cartCountInfo.textContent = cartInfo.productCount;
     cartTotalValue.textContent = cartInfo.total;
-};
-let getProductInfo = (product) => {
+}
+
+let getProductInfo = (product: HTMLElement): void => {
     let productInfo = {
         id: cartItemID,
-        image: product.querySelector('.product-img').src,
+        image: product.querySelector ('.product-img').src,
         title: product.querySelector('.product-name').textContent,
         company: product.querySelector('.company-btn').textContent,
         price: product.querySelector('.product-price').textContent
-    };
-    /*   console.log(productInfo)*/
+    }
+    /!*   console.log(productInfo)*!/
     cartItemID++;
     addToCartList(productInfo);
     saveProductInStorage(productInfo);
-};
-const addToCartList = (item) => {
+}
+
+
+const addToCartList = (item: ItemsInterface): void => {
     const cartItem = document.createElement('div');
     cartItem.classList.add('cart-item');
     cartItem.setAttribute('data-id', `${item.id}`);
@@ -97,7 +119,7 @@ const addToCartList = (item) => {
              <i class="fa fa-chevron-up" data-id=${item.id}></i>
              <p class="item-amount">${item.amount}</p>
              <i class="fa fa-chevron-down" data-id=${item.id}></i>
-        </div> 
+        </div>
         <div class = "cart-item-info">
             <h3 class = "cart-item-name">${item.title}</h3>
              <span class = "company-btn">${item.company}</span>
@@ -109,59 +131,70 @@ const addToCartList = (item) => {
         </button>
     `;
     cartList.appendChild(cartItem);
-};
-const saveProductInStorage = (item) => {
+}
+
+const saveProductInStorage = (item: ItemsInterface): void => {
     let products = getProductFromStorage();
-    /* console.log(products)*/
+    /!* console.log(products)*!/
     products.push(item);
     localStorage.setItem('cart', JSON.stringify(products));
     updateCartInfo();
-};
-const getProductFromStorage = () => {
-    return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
-};
-const loadCart = () => {
+}
+
+const getProductFromStorage = ()=> {
+    return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+}
+
+const loadCart = (): void => {
     let products = getProductFromStorage();
-    if (products.length < 1) {
+    if(products.length < 1){
         cartItemID = 1; // if there is no any product in the local storage
-    }
-    else {
+    } else {
         cartItemID = products[products.length - 1].id;
         cartItemID++;
     }
+
     products.forEach(product => addToCartList(product));
     updateCartInfo();
-};
-let findCartInfo = () => {
+}
+
+
+let findCartInfo = () =>{
     let products = getProductFromStorage();
     // console.log(products);
     let total = products.reduce((acc, product) => {
         let price = parseFloat(product.price.substr(0));
         return acc + price;
     }, 0);
-    console.log(total);
-    return {
+    console.log(total)
+    return{
         total: total.toFixed(2),
         productCount: products.length
-    };
-};
+    }
+}
+
 const deleteProduct = (e) => {
-    /*console.log(e.target)*/
+    /!*console.log(e.target)*!/
     let cartItem;
-    if (e.target.tagName === "BUTTON") {
+    if(e.target.tagName === "BUTTON"){
         cartItem = e.target.parentElement;
         cartItem.remove();
-    }
-    else if (e.target.tagName === "I") {
+    } else if(e.target.tagName === "I"){
         cartItem = e.target.parentElement.parentElement;
         cartItem.remove();
+
     }
+
     let products = getProductFromStorage();
     let updatedProducts = products.filter(product => {
         return product.id !== parseInt(cartItem.dataset.id);
     });
     localStorage.setItem('cart', JSON.stringify(updatedProducts));
     updateCartInfo(); /////big big
-    /* console.log(products);
-   console.log(updatedProducts);*/
-};
+    /!* console.log(products);
+   console.log(updatedProducts);*!/
+}
+
+
+
+*/

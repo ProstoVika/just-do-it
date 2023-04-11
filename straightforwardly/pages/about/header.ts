@@ -1,9 +1,13 @@
+/*
 import {ItemsInterface} from "../../inter/interfaces";
-/*import {renderList} from "../../index";*/
+import {VikaTestClass} from "../../index";
+/!*import {renderList} from "../../index";*!/
 
 (() =>{
     console.log('just do it now');
 })();
+
+
 
  const renderList = (items: ItemsInterface[]): void => {
     let placeholder = document.querySelector(".products-container");
@@ -77,7 +81,7 @@ window.addEventListener('DOMContentLoaded', (): void =>{
 
 const purchaseProduct = (e) => {
     if(e.target.classList.contains('bag-btn')){
-        /*console.log(e.target)*/
+        /!*console.log(e.target)*!/
         let product = e.target.parentElement.parentElement;
         getProductInfo(product);
     }
@@ -85,7 +89,7 @@ const purchaseProduct = (e) => {
 
 const updateCartInfo = (): void =>{
     let cartInfo = findCartInfo();
-    /* console.log(cartInfo)*/
+    /!* console.log(cartInfo)*!/
     cartCountInfo.textContent = cartInfo.productCount;
     cartTotalValue.textContent = cartInfo.total;
 }
@@ -98,7 +102,7 @@ let getProductInfo = (product: HTMLElement): void => {
         company: product.querySelector('.company-btn').textContent,
         price: product.querySelector('.product-price').textContent
     }
-    /*   console.log(productInfo)*/
+    /!*   console.log(productInfo)*!/
     cartItemID++;
     addToCartList(productInfo);
     saveProductInStorage(productInfo);
@@ -131,7 +135,7 @@ const addToCartList = (item: ItemsInterface): void => {
 
 const saveProductInStorage = (item: ItemsInterface): void => {
     let products = getProductFromStorage();
-    /* console.log(products)*/
+    /!* console.log(products)*!/
     products.push(item);
     localStorage.setItem('cart', JSON.stringify(products));
     updateCartInfo();
@@ -170,7 +174,7 @@ let findCartInfo = () =>{
 }
 
 const deleteProduct = (e) => {
-    /*console.log(e.target)*/
+    /!*console.log(e.target)*!/
     let cartItem;
     if(e.target.tagName === "BUTTON"){
         cartItem = e.target.parentElement;
@@ -187,9 +191,10 @@ const deleteProduct = (e) => {
     });
     localStorage.setItem('cart', JSON.stringify(updatedProducts));
     updateCartInfo(); /////big big
-    /* console.log(products);
-   console.log(updatedProducts);*/
+    /!* console.log(products);
+   console.log(updatedProducts);*!/
 }
 
 
 
+*/
