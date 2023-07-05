@@ -1,0 +1,125 @@
+.container, .slider{
+  position: relative;
+  width: 1000px;
+  height: 700px;
+  overflow: hidden;
+  background: grey;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.text {
+  position: absolute;
+  padding: 50px;
+  width: 700px;
+  height: 100px;
+  text-align: justify;
+  color: white;
+  bottom: 100px;
+  text-align: center;
+  margin: 20px 100px;
+}
+
+.slides {
+  display: flex;
+  position: absolute;
+  top: 0;
+  transition: left .7s ease-in-out;
+  background-size: cover;
+}
+
+.slide, .slide_1{
+  width: 1000px;
+  height: 700px;
+}
+  
+.buttons {
+  position: absolute;
+  width: 1000px;
+  height: 100px;
+  color: white;
+  background: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  top: 50%;
+  z-index: 1;
+  display: none;
+  font-size: 40px;
+ }
+
+.btn-round-pre {
+   left: 0;
+   position: absolute;
+ }
+
+.btn-round-nxt {
+  right: 0;
+  position: absolute;
+ }
+
+.navdots {
+  width: 100%;
+  height: 20px;
+  bottom: 10%;
+  position: absolute;
+  text-align: center;
+  z-index: 99;
+}
+
+.dots{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  border-radius: 60%;
+  border: solid white 2px;
+  cursor: pointer;
+}
+.active, .dots:hover {
+  background-color: white;
+}
+
+ .dots:hover {
+   background-color: white;
+}
+
+ .dots:focus {
+   background: white;
+}
+
+.buttons label:hover {
+   opacity: 0.6;
+}
+
+#i1, #i2, #i3 {
+  display: none;
+}
+
+#i1:checked ~ .container > .slides{
+  left: 0;
+}
+#i2:checked ~ .container > .slides{
+  left: -1000px;
+}
+#i3:checked ~ .container > .slides{
+  left: -2000px;
+}
+
+#i1:checked ~ #one,
+#i2:checked ~ #two,
+#i3:checked ~ #three {
+   z-index: 99;
+}
+
+#i1:checked ~ .navdots #dot1,
+#i2:checked ~ .navdots #dot2,
+#i3:checked ~ .navdots #dot3 {
+  background: white;
+}
+
+#i1:checked ~ .container > .first, 
+#i2:checked ~ .container > .second,
+#i3:checked ~ .container > .third{
+  display: block;
+}
+

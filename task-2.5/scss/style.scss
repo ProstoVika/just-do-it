@@ -1,0 +1,124 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f5f7fa;
+  line-height: 2;
+  font-size: 0.1rem;
+
+  .section-center {
+    width: 90vw;
+    max-width: 35rem;
+    margin: 8rem auto 0;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s linear;
+    padding: 2rem;
+
+    &:hover {
+      box-shadow: 0 5px 15px rgba(18, 36, 126, 0.2);
+    }
+
+    .grocery-form {
+      h3 {
+        color: #3a3539;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        letter-spacing: 0.25rem;
+        text-transform: capitalize;
+        line-height: 1.25;
+        font-size: 1.25rem;
+      }
+
+      .form-control {
+        display: flex;
+        justify-content: center;
+
+        #grocery {
+          padding: 0.25rem 0.25rem 0.25rem 1rem;
+          background: #d4dbe5;
+          border-top-left-radius: 0.5rem;
+          border-bottom-left-radius: 0.5rem;
+          border-color: transparent;
+          font-size: 1rem;
+          flex: 1 0 auto;
+          color: #3a3539;
+        }
+
+        .submit-btn {
+          background: #a9b9cc;
+          border-color: transparent;
+          flex: 0 0 5rem;
+          align-items: center;
+          padding: 0.25rem;
+          text-transform: capitalize;
+          letter-spacing: 2px;
+          border-top-right-radius: 0.5rem;
+          border-bottom-right-radius: 0.5rem;
+          cursor: pointer;
+          transition: all 0.3s linear;
+          font-size: 0.85rem;
+
+          &:hover {
+            background: #A5D5F8FF;
+            color: #FFFFFFFF;
+          }
+        }
+      }
+    }
+
+    #list {
+      padding: 0.25rem 0.25rem 0.25rem 1rem;
+      background: white;
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+      border-color: transparent;
+      font-size: 1rem;
+      color: #110d0d;
+      width: 100%;
+      float: left;
+
+      button {
+        background: white;
+        width: 5em;
+        height: 2em;
+        border-color: transparent;
+        cursor: pointer;
+        margin: 0 0.15rem;
+        transition: var(--transition);
+        float: right;
+
+        i {
+          cursor: pointer;
+          font-size: 0.8rem;
+          margin: 0 0.15rem;
+          color: #ab5e7f;
+
+          &:hover {
+            color: #BB2525FF;
+          }
+        }
+      }
+    }
+
+    .clear-btn {
+      text-transform: capitalize;
+      width: 10rem;
+      height: 1.5rem;
+      display: grid;
+      align-items: center;
+      background: transparent;
+      border-color: transparent;
+      color: #ab5e7f;
+      font-size: 0.85rem;
+      letter-spacing: 0.25rem;
+      cursor: pointer;
+      transition: all 0.3s linear;
+      margin: 1.25rem auto 0;
+
+      &:hover {
+        color: #BB2525FF;
+      }
+    }
+  }
+}
+

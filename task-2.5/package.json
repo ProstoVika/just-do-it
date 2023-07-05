@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "imagemin-cli": "^7.0.0",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "prop-types": "^15.8.1"
+  },
+}

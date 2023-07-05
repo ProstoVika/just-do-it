@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.page-wrap {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.main-story {
+    position: relative;
+}
+
+.main-story, .sub-stories {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+img {
+    height: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+}
+
+a {
+    color: lightblue;
+}
+
+.story-intro {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    color: white;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h1, h2 {
+    margin: 0 0 0 5px;
+}
+
+.story-intro h1 {
+    font-size: 3.7em;
+}
+
+.story-intro p {
+    margin: 0;
+}
+
+.sub-stories {
+    overflow: hidden;
+    padding: 5px; 
+    margin: 0 0 0 0;
+}
+
+.sub-story {
+    float: left;
+    width: 250px;
+    position: relative;
+    font-size: 80%;
+    margin: 5px;
+    margin-right: 15px;
+}
+
+.last {
+    margin: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+  .page-wrap {
+    background-color: white;
+    font-size: 15px;
+  }  
+
+  .sub-stories {
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .page-wrap  {
+    font-size: 15px;
+  }  
+
+  .main-story, .sub-stories {
+    flex-basis: 100%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .page-wrap  {
+    font-size: 20px;
+  }
+
+  .main-story, .sub-stories{
+    flex-basis: 100%;
+  }
+ }
+ 
+@media only screen and (min-width: 1200px) {
+  .page-wrap  {
+    background-color: grey;
+    font-size: 25px; 
+ }
+
+ .main-story, .sub-stories {
+    flex-basis: 100%;
+  }
+}

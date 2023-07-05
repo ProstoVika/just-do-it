@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .some_block {
+      text-align: center;
+      position: fixed;
+      left: 0;
+      top: 100px;
+      opacity: 50%;
+    }
+    .header {
+      height: 4vh;
+      flex-wrap: wrap;
+      text-align: center;
+      justify-content: left;
+      flex-basis: 100%;
+      .menu {
+        margin-top: 3rem;
+        span {
+          font-size: 2rem;
+          font-weight: 700;
+          width: 10%;
+          color: #182433;
+          border-bottom: 4px solid #6d7863;
+          cursor: pointer;
+        }
+      }
+      .categories {
+        cursor: pointer;
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        text-align: center;
+        margin-top: 20px;;
+        a {
+          position: relative;
+          text-decoration: none;
+          display: inline-block;
+          min-width: 200px;
+          height: 40px;
+          font-weight: bold;
+          background-color: white;
+          margin: 8px;
+          padding: 10px 5px;
+          font-size: 20px;
+          color: #304731;
+          transition: all 0.3s ease;
+          outline: none;
+          border: none;
+          box-shadow: 0 3px 1px -2px #6d7863, 0 2px 2px 0 #6d7863, 0 1px 5px 0 #6d7863;
+          &:active {
+            box-shadow: 0 4px 2px -3px #6d7863, 0 4px 5px 1px #6d7863, 0 2px 7px 1px #6d7863;
+          }
+        }
+      }
+    }
+
+    article {
+      padding: 50px;
+      width: 1400px;
+      .container {
+        display: grid;
+        grid-template-columns:#{'repeat(auto-fit, minmax(500px, 1fr))'};
+        grid-auto-rows: 150px;
+        grid-gap: 150px;
+        .items {
+          display:flex;
+          justify-content: center;
+          width: 600px;
+          height: 250px;
+          box-shadow: 0 3px 1px -2px #6d7863, 0 2px 2px 0 #6d7863, 0 1px 5px 0 #6d7863;
+          img {
+            object-fit: cover;
+            width:350px;
+            height: 250px;
+          }
+          .details{
+            display: inline-flex;
+            margin-left: 10px;
+            padding: 5px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            border-bottom: 1px dotted #182433;
+            width: 220px;
+            .title {
+              font-size: 1.0rem;
+              font-weight: 500;
+              letter-spacing: 2px;
+            }
+            .price {
+              margin-left: 70px;
+              font-size: 1rem;
+              font-weight: 800;
+              color: #6d7863;
+              word-spacing: 2px;
+            }
+          }
+          .des{
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            margin-left: 10px;
+            padding: 10px;
+          }
+          .category {
+            display: none;
+          }
+        }
+      }
+    }
+    footer {
+      height: 200px;
+      .material-icons{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px;
+        font-size: 80px;
+        margin: auto 600px;
+        opacity: 50%;
+      }
+    }
+  }
+}

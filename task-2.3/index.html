@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 2.3</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<article class="article">
+    <div class="some_block">
+        <img src="images/2.jpg" alt="">
+    </div>
+
+    <form class="signup-form" id="myForm" name="myForm" onSubmit="validateForm(event)">
+
+        <div class="form-header">
+            <h1>Create Account</h1>
+        </div>
+        <div class="form-body">
+            <div class="horizontal-group">
+                <div class="form-group left">
+                    <label for="name" class="label-title">First name*</label>
+                    <input type="text" id="name" class="form-input" placeholder="name" onChange="validateName(event)">
+                    <small id="name-error"></small>
+
+                </div>
+                <div class="form-group right">
+                    <label for="date" class="label-title">Date of birth*</label>
+                    <input type="text" id="date" class="form-input" placeholder="date" onChange="validateDate(event)">
+                    <small id="date-error"></small>
+                </div>
+            </div>
+            <br>
+
+            <div class="horizontal-group">
+                <div class="form-group">
+                    <label for="email" class="label-title">Email*</label>
+                    <input type="email" id="email" class="form-input" placeholder="enter your email" onChange="validateEmail(event)">
+                    <small  id="email-error"></small>
+                </div>
+            </div>
+
+            <div class="horizontal-group">
+                <div class="form-group left">
+                    <label for="password" class="label-title">Password*</label>
+                    <input type="password" id="password" class="form-input" placeholder="eight characters and one uppercase"  onChange="validatePassword(event)">
+                    <small  id="password-error"></small>
+                </div>
+                <div class="form-group right">
+                    <label for="password2" class="label-title">Confirm Password*</label>
+                    <input type="password" class="form-input" id="password2" placeholder="enter your password again" onChange="validatePassword2(event)">
+                    <small  id="password2-error"></small>
+                </div>
+            </div>
+
+            <div class="horizontal-group">
+                <div class="form-group left">
+                    <label class="label-title">Gender:</label>
+                    <div class="input-group">
+                        <label for="male"><input type="radio" name="gender" value="male" id="male"> Male</label >
+                        <label for="female"><input type="radio" name="gender" value="female" id="female"> Female</label>
+                    </div>
+                </div>
+                <div class="form-group right">
+                    <label class="label-title">Hobbies</label>
+                    <div>
+                        <label><input type="checkbox" value="Web">Music</label>
+                        <label><input type="checkbox" value="iOS">Sports</label>
+                        <label><input type="checkbox" value="Android">Travel</label>
+                        <label><input type="checkbox" value="Game">Movies</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="horizontal-group">
+                <div class="form-group left">
+                    <label class="label-title">Source of Income</label>
+                    <label for="level"><select class="form-input" id="level">
+                        <option value="B">Employed</option>
+                        <option value="I">Self-employed</option>
+                        <option value="A">Unemployed</option>
+                    </select>
+                    </label>
+                </div>
+                <div class="form-group right">
+                    <label for="experience" class="label-title">Income</label>
+                    <input type="range" id="experience" class="form-input" onChange="change()">
+                    <span id="range-label">20K</span>
+                </div>
+            </div>
+
+            <div class="horizontal-group">
+                <div class="form-group left">
+                    <label for="choose-file" class="label-title">Upload Profile Picture</label>
+                    <input type="file" id="choose-file" size="80">
+                </div>
+                <div class="form-group right">
+                    <label for="experiences" class="label-title">Age</label>
+                    <input type="number" id="experiences" min="18" max="80" value="18" class="form-input">
+                </div>
+            </div>
+
+            <div class="form-group bio">
+                <label for="choose-file" class="label-title">Bio</label>
+                <textarea class="form-input" rows="3" cols="75"></textarea>
+            </div>
+        </div>
+
+        <div class="form-footer">
+            <button class="button-32" type="submit" value="Submit" role="button" onClick="myFunction()">Send</button>
+        </div>
+    </form>
+</article>
+<script src="index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

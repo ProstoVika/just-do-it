@@ -1,0 +1,59 @@
+
+body {
+	font-size: 20px;
+   margin: 0;
+   font-family: sans-serif;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+}
+
+header {
+	background-color:#336699;
+}
+
+main {
+   display: flex;
+   flex: 1rem;
+}
+
+nav, aside {
+   padding: 20px;
+	padding-top: 3rem;
+	text-align: left;
+	flex: 1 1 1rem;
+}
+
+header, footer {
+	color: white;
+	padding: 20px;
+   padding-top: 3rem;
+	height: 50px;
+	text-align: center;
+}
+
+nav {
+	background-color: orange;
+}
+
+article {
+	background-color: white;
+	padding: 10px;
+	text-align: left;
+	height: 550px;
+	flex: 4 4;
+}
+
+aside {
+	background-color:#be2596;
+}
+
+footer {
+	background-color: #3f902d;	
+}
+
+@media all and (max-width: 600px) {
+	main {
+		flex-direction: column;
+	}
+}
